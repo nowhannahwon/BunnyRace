@@ -1,0 +1,45 @@
+<script>
+
+alert("Let's race!! First one to 10 wins!");
+
+function Animal(name, speed, focus) {
+    this.name = name;
+    this.speed = speed;
+    this.focus = focus;
+    this.position = 0;
+    this.run = function() {
+      if (Math.random() * 10 < this.focus) {
+        this.position += this.speed;
+        alert(this.name + " advances to " + this.position);
+      }
+      else{
+        alert(this.name + " gets distracted and remains at " + this.position);
+      }
+    };
+  }
+
+var bunny = new Animal("Hector the Bunny", 5, 3);
+var wallabee = new Animal("Bitsy the Wallabee", 2, 7);
+
+runRace = function(animal1, animal2) {
+  animal1.run();
+  animal2.run();
+
+  if (animal1.position <10 && animal2.position < 10){
+    runRace(animal1, animal2);
+  }
+  else if (animal2.position != animal1.position) {
+    if (animal1.position > animal2.position) {
+      alert(animal1.name + " wins!");
+    }
+    else {
+      alert(animal2.name + " wins!");
+    }
+  }
+  else {
+    alert("It's a tie!!");
+    }
+};
+runRace(bunny, wallabee);
+
+</script>
