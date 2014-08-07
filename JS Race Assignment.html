@@ -1,0 +1,53 @@
+<script>
+
+  //These are the participants of the race
+  var bunny, wallabee;
+
+
+  //These are the characteristics of the participants
+
+  function Animal(name, speed, focus) {
+    this.name = name;
+    this.speed = speed;
+    this.focus = focus;
+    this.position = 0;
+    this.run = function() {
+      if (Math.random() * 10 < this.focus) {
+        this.position += this.speed;
+      }
+      else{
+        alert(this.name + " doesn't move.");
+      }
+      return this.position
+    };
+  }
+
+
+  //Create the participants of the race
+
+  bunny = new Animal("Wally", 10, 2);
+  wallabee = new Animal("Bitsy", 3, 7);
+
+
+
+
+
+  var runRace = function(anima11, animal2) {
+    while (animal1.position && animal2.position < 10) {
+      animal1.position = animal1.run();
+      alert(animal1 + " is at" + animal1.position);
+      animal2.position = animal2.run();
+      alert(animal2 + " is at" + animal2.position);
+
+    }
+    if (animal1.position >= 100) {
+      alert(animal1.name + " has won the race!");
+    }
+    else {
+      alert(animal2.name + " has won the race!");
+    }
+  };
+
+runRace(bunny, wallabee);
+
+</script>
